@@ -1,0 +1,10 @@
+C:\Users\laboratorio_BV\Documents\Juego Adivina el Número\Juego Adivina el Número\bin\Debug\Juego Adivina el Número.exe.config
+C:\Users\laboratorio_BV\Documents\Juego Adivina el Número\Juego Adivina el Número\bin\Debug\Juego Adivina el Número.exe
+C:\Users\laboratorio_BV\Documents\Juego Adivina el Número\Juego Adivina el Número\bin\Debug\Juego Adivina el Número.pdb
+C:\Users\laboratorio_BV\Documents\Juego Adivina el Número\Juego Adivina el Número\obj\Debug\Juego Adivina el Número.csproj.AssemblyReference.cache
+C:\Users\laboratorio_BV\Documents\Juego Adivina el Número\Juego Adivina el Número\obj\Debug\Juego_Adivina_el_Número.Form1.resources
+C:\Users\laboratorio_BV\Documents\Juego Adivina el Número\Juego Adivina el Número\obj\Debug\Juego_Adivina_el_Número.Properties.Resources.resources
+C:\Users\laboratorio_BV\Documents\Juego Adivina el Número\Juego Adivina el Número\obj\Debug\Juego Adivina el Número.csproj.GenerateResource.cache
+C:\Users\laboratorio_BV\Documents\Juego Adivina el Número\Juego Adivina el Número\obj\Debug\Juego Adivina el Número.csproj.CoreCompileInputs.cache
+C:\Users\laboratorio_BV\Documents\Juego Adivina el Número\Juego Adivina el Número\obj\Debug\Juego Adivina el Número.exe
+C:\Users\laboratorio_BV\Documents\Juego Adivina el Número\Juego Adivina el Número\obj\Debug\Juego Adivina el Número.pdb
