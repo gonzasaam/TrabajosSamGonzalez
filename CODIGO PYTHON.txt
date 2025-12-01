@@ -1,0 +1,41 @@
+CODIGO PYTHON
+
+def digito_verificador_rut(rut_sin_dv: str) -> str:
+    """
+    Calcula el dígito verificador (DV) de un RUT chileno usando el algoritmo módulo 11.
+    rut_sin_dv debe venir solo con números, sin puntos ni guion.
+    """
+ 
+    rut = "".join(ch for ch in rut_sin_dv if ch.isdigit())
+   
+
+    invertido = rut[::-1]
+
+
+    factores = [2, 3, 4, 5, 6, 7]
+    suma = 0
+    for i, ch in enumerate(invertido):
+        num = int(ch)
+        factor = factores[i % len(factores)]
+        suma += num * factor
+
+
+    resto = suma % 11
+    dv_num = 11 - resto
+
+    if dv_num == 11:
+        return "0"
+    elif dv_num == 10:
+        return "K"
+    else:
+        return str(dv_num)
+
+
+def main():
+    rut_ejemplo = input("Ingresa el RUT sin dígito verificador: ")
+    dv = digito_verificador_rut(rut_ejemplo)
+    print(f"El dígito verificador es: {dv}")
+
+
+if __name__ == "__main__":
+    main()

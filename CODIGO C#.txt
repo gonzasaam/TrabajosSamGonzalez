@@ -1,0 +1,65 @@
+CODIGO C#
+
+using System;
+using System.Linq;
+
+namespace DigitoVerificador
+{
+
+    public class DigitoVerificador
+    {
+
+        public static void Main(string[] args)
+        {
+            // El RUT 
+            string rut = "22.700.210-0";
+
+            Console.WriteLine($"El dígito verificador de {rut} es: {CalcularDigitoVerificador(rut)}");
+        }
+
+
+        public static string CalcularDigitoVerificador(string rut)
+        {
+
+            rut = rut.Replace(".", "").Replace("-", "");
+
+
+            string rutNumeros = rut.Substring(0, rut.Length - 1);
+            char dv = rut[rut.Length - 1];
+
+
+            char[] rutArray = rutNumeros.ToCharArray();
+            Array.Reverse(rutArray);
+            string rutInvertido = new string(rutArray);
+
+
+            int[] multiplicadores = { 2, 3, 4, 5, 6, 7 };
+
+
+            int suma = 0;
+            for (int i = 0; i < rutInvertido.Length; i++)
+            {
+                int numero = (int)char.GetNumericValue(rutInvertido[i]);
+                int multiplicador = multiplicadores[i % multiplicadores.Length];
+                suma += numero * multiplicador;
+            }
+
+            int resto = suma % 11;
+            int digito = 11 - resto;
+
+
+            if (digito == 11)
+            {
+                return "0";
+            }
+            else if (digito == 10)
+            {
+                return "K";
+            }
+            else
+            {
+                return digito.ToString();
+            }
+        }
+    }
+}

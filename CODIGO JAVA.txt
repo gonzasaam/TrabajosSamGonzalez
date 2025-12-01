@@ -1,0 +1,55 @@
+CODIGO JAVA 
+
+package digitoverificador;
+
+/**
+ *
+ * @author Laboratorio_BV
+ */
+public class DigitoVerificador {
+
+    // Método principal que ejecuta el programa
+    public static void main(String[] args) {
+        // El RUT de ejemplo
+        String rut = "25.939.249-0"; 
+        // Llamamos al método que calcula el dígito verificador
+        System.out.println("El dígito verificador de " + rut + " es: " + calcularDigitoVerificador(rut));
+    }
+ 
+    // Método que calcula el dígito verificador
+    public static String calcularDigitoVerificador(String rut) {
+        // 1. Eliminar los puntos y el guion del RUT
+        rut = rut.replace(".", "").replace("-", "");
+
+        // 2. Separar los números del RUT y el dígito verificador
+        String rutNumeros = rut.substring(0, rut.length() - 1); // Números sin el digito verificador
+        char dv = rut.charAt(rut.length() - 1); // El último carácter es el dígito verificador
+
+        // 3. Invertir la cadena de los números del RUT
+        String rutInvertido = new StringBuilder(rutNumeros).reverse().toString();
+
+        // 4. Definir la secuencia de multiplicadores
+        int[] multiplicadores = {2, 3, 4, 5, 6, 7}; // Ciclo de multiplicadores
+
+        // 5. Realizar las multiplicaciones y sumar los resultados
+        int suma = 0;
+        for (int i = 0; i < rutInvertido.length(); i++) {
+            int numero = Character.getNumericValue(rutInvertido.charAt(i)); // Obtener el número en cada posición
+            int multiplicador = multiplicadores[i % multiplicadores.length]; // Obtener el multiplicador correspondiente
+            suma += numero * multiplicador; // Multiplicar y sumar al total
+        }
+
+        // 6. Calcular el resto de la división entre 11
+        int resto = suma % 11; // Resto de la división de la suma entre 11
+        int digito = 11 - resto; // El dígito verificador es 11 menos el resto
+
+        // 7. Determinar el dígito verificador final
+        if (digito == 11) {
+            return "0"; // Si el resultado es 11, el dígito es 0
+        } else if (digito == 10) {
+            return "K"; // Si el resultado es 10, el dígito es K
+        } else {
+            return String.valueOf(digito); // En caso contrario, el dígito es el valor calculado
+        }
+    }
+}
